@@ -5,15 +5,13 @@
 ?>
 
 <?php
-	$productos = seleccionarOfertasPortada(numOfertas);
+	$productos = seleccionarTodasOfertas();
 ?>
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Welcome to My Grupito!</h1>
-      <p >La tienda en Spanglish con las mejores ofertas de internet que podrás compartir con tus amigos.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Nuestras ofertas »</a></p>
+      <h1 class="display-3">Todas las GrupiOfertas</h1>
     </div>
   </div>
 
