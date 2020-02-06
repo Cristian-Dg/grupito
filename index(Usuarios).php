@@ -4,7 +4,7 @@
 		header ('location: index.php?redirect=1');
 	} */
 	require_once "inc/encabezado.php";
-	require_once "inc/bbdd.php";
+	require_once "bbdd/bbdd(Usuarios).php";
 ?>
 	<main role="main" class="container">
     <h1 class='mt-5' align='center'>listado Usuarios</h1>
@@ -36,6 +36,10 @@
 		<tr align='center'>
 		  <th scope="row"><?php echo $idUsuario; ?></th>
 		  <td><?php echo $nombre; ?></td>
+		  <td><?php echo $apellidos; ?></td>
+		  <td><?php echo $email; ?></td>
+		  <td><?php echo $direccion; ?></td>
+		  <td><?php echo $telefono; ?></td>
 		  <td>
 			<p><a href='actualizarUsuario.php?idUsuario=<?php echo $idUsuario; ?>' class='btn btn-secondary'>Editar</a>
 			<a href='borrarUsuario.php?idUsuario=<?php echo $idUsuario; ?>' onClick='return confirmar("Realmente quiere Borrar?");' class='btn btn-outline-danger'>Borrar</a></p>
@@ -47,7 +51,6 @@
 	  </tbody>
 	</table>
 	<p><a href='insertarUsuario.php' class='btn btn-dark btn-lg btn-block'>Nuevo usuario</a></p>
-	<p><a href='cerrarSesion.php' class='btn btn-danger btn-lg btn-block'>Cerrar Sesión</a></p>
 	</main>
 
 <script>

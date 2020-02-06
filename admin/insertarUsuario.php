@@ -1,6 +1,6 @@
 <?php 
 	require_once "inc/funciones.php";
-	require_once "inc/bbdd(usuarios).php";
+	require_once "inc/bbdd.php";
 	require_once "inc/encabezado.php";
 ?>
 

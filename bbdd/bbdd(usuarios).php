@@ -22,14 +22,18 @@ function desconectarBD($con){
 }
 
 //funcion --> insertar usuario
-function insertarUsuario($email,$password){
+function insertarUsuario($nombre,$password,$apellidos,$email,$direccion,$telefono){
 	$password=password_hash($password,PASSWORD_DEFAULT);
 	$con=conectarBD();
 	try{
-		$sql = "INSERT INTO usuarios (email,password) VALUES (:email,:password)";
+		$sql = "INSERT INTO usuarios (nombre,password,apellidos,email,direccion,telefono,online) VALUES (:nombre,:password,:apellidos,:email,:direccion,:telefono,1)";
 		$stmt = $con->prepare($sql);
-		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':nombre',$nombre);
 		$stmt->bindParam(':password',$password);
+		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':apellidos',$apellidos);
+		$stmt->bindParam(':direccion',$direccion);
+		$stmt->bindParam(':telefono',$telefono);
 		$stmt->execute();
 	}
 	catch(PDOException $e){
@@ -41,15 +45,19 @@ function insertarUsuario($email,$password){
 }
 
 //funcion --> actualizar usuario
-function actualizarUsuario($idUsuario,$email,$password){
+function actualizarUsuario($idUsuario,$nombre,$password,$apellidos,$email,$direccion,$telefono){
 	$password=password_hash($password,PASSWORD_DEFAULT);
 	$con=conectarBD();
 	try{
-		$sql="UPDATE usuarios SET email=:email, password=:password WHERE idUsuario=:idUsuario";
+		$sql="UPDATE usuarios SET nombre=:nombre, apellidos:apellidos, direccion=:direccion, telefono=:telefono email=:email, password=:password WHERE idUsuario=:idUsuario";
 		$stmt = $con->prepare($sql);
 		$stmt->bindParam(':idUsuario',$idUsuario);
-		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':nombre',$nombre);
 		$stmt->bindParam(':password',$password);
+		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':apellidos',$apellidos);
+		$stmt->bindParam(':direccion',$direccion);
+		$stmt->bindParam(':telefono',$telefono);
 		$stmt->execute();
 	}
 	catch(PDOException $e){
@@ -65,7 +73,7 @@ function actualizarUsuario($idUsuario,$email,$password){
 function borrarUsuario($idUsuario){
 	$con = conectarBD();
 	try{
-		$sql = "DELETE FROM usuarios WHERE idUsuario=$idUsuario;";
+		$sql = "UPDATE usuarios SET online=0 WHERE idUsuario=:idUsuario";
 		$stmt = $con->prepare($sql);
 		$stmt->bindParam(':idUsuario',$idUsuario);
 		$stmt->execute();
@@ -82,7 +90,7 @@ function borrarUsuario($idUsuario){
 function seleccionarTodosUsuarios(){
 	$con = conectarBD();
 	try{
-		$sql = "SELECT * FROM usuarios";
+		$sql = "SELECT * FROM usuarios WHERE online=1";
 		$stmt = $con->query($sql);
 		$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
