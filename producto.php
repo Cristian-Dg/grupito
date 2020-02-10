@@ -1,10 +1,7 @@
 <?php
 	require_once('bbdd/bbdd.php');
-	require_once('inc/encabezado.php');
 	require_once('inc/funciones.php');
-?>
-
-<?php
+	
 	$idProducto = recoge('id');
 	$producto = seleccionarProducto($idProducto);
 	
@@ -15,6 +12,12 @@
 	$precio = $producto['precio'];
 	$precioOferta = $producto['precioOferta'];
 	
+	$pagina='productos';
+	$titulo=$nombre;
+?>
+
+<?php
+	require_once('inc/encabezado.php');
 ?>
 
   <!-- Main jumbotron for a primary marketing message or call to action -->

@@ -1,6 +1,7 @@
 <?php 
 	require_once "inc/funciones.php";
-	require_once "bbdd/bbdd(Usuarios).php";
+	require_once('bbdd/bbdd.php');
+	require_once "bbdd/bbdd(usuarios).php";
 	require_once "inc/encabezado.php";
 ?>
 
@@ -96,7 +97,7 @@
 			}
 			else{
 				echo'<div class="alert alert-success" role="alert">El usuario '.$idUsuario.' ha sido insertado</div>';
-				echo "<p><a href='index(Usuarios).php' class='btn btn-dark'>Volver</a></p>";
+				echo "<p><a href='index.php' class='btn btn-dark'>Volver</a></p>";
 			}
 		}
 	}

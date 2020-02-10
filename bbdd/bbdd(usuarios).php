@@ -1,6 +1,9 @@
-<?php include "configuracion.php"; ?>
+<?php 
+/*
+	include "configuracion.php"; ?>
 
 <?php
+
 //funcion --> conectarnos BD
 function conectarBD(){
 	try{
@@ -20,6 +23,7 @@ function desconectarBD($con){
 	$con=NULL;
 	return $con;
 }
+*/
 
 //funcion --> insertar usuario
 function insertarUsuario($nombre,$password,$apellidos,$email,$direccion,$telefono){
@@ -118,12 +122,12 @@ function contarUsuarios(){
 }
 
 //funcion --> seleccionar 1 usuario
-function seleccionarUsuario($idUsuario){
+function seleccionarUsuario($email){
 	$con = conectarBD();
 	try{
-		$sql = "SELECT * FROM usuarios WHERE idUsuario=:idUsuario";
+		$sql = "SELECT * FROM usuarios WHERE email=:email";
 		$stmt = $con->prepare($sql);
-		$stmt->bindParam(':idUsuario',$idUsuario);
+		$stmt->bindParam(':email',$email);
 		$stmt->execute();
 		$rows=$stmt->fetch(PDO::FETCH_ASSOC);
 	}

@@ -59,12 +59,12 @@
 		header("location: index(Usuarios).php");
 	}
 	if(!isset($_REQUEST['guardar'])){
-		$idUsuario=recoge('idUsuario');
+		$email=recoge('email');
 		if($idUsuario==''){
 			header("location: index(Usuarios).php");
 			exit();
 		}
-		$usuario=seleccionarUsuario($idUsuario);
+		$usuario=seleccionarUsuario($email);
 		if(empty($usuario)){
 			header("location: index(Usuarios).php");
 			exit();	
