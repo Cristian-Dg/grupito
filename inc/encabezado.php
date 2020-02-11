@@ -66,7 +66,11 @@
 		 </ul>
 		 <ul class="navbar-nav justified-content-end">
 			<li class="nav-item">
-				<a href="carrtito.php" class="nav-link"><i class="fas fa-shopping-cart"></i> (0)</a>
+				<?php if(empty($_SESSION['carrito'])){ ?>
+				<a href="carrito.php" class="nav-link"><i class="fas fa-shopping-cart"></i> (0)</a>
+				<?php }else{ ?>
+				<a href="carrito.php" class="nav-link"><i class="fas fa-cart-plus"></i> (0)</a>
+				<?php } ?>
 			</li>
 			<?php
 				if (isset($_SESSION['usuario'])){

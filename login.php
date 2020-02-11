@@ -1,7 +1,6 @@
 <?php 
 	session_start();
 	require_once('bbdd/bbdd.php');
-	require_once "bbdd/bbdd(usuarios).php";
 	require_once "inc/funciones.php";
 
 	function imprimirFormulario($email,$password){
@@ -15,8 +14,8 @@
 			<label for="password"><strong>Password</strong></label>
 			<input type="password" class="form-control" id="password" name="password" value='<?php echo $password; ?>'/>
 		</div>
-		<p><br><button type="submit" class="btn btn-secondary" name='enviar' value='enviar'>Iniciar Sesión</button></p>
-		<p><a href='insertarUsuario.php' class='btn btn-outline-dark'>Nuevo usuario</a></p>
+		<p><br><button type="submit" class="btn btn-outline-success" name='enviar' value='enviar'>Inicia Sesión</button></p>
+		<p><a href='insertarUsuario.php' class='btn btn-dark'>Nuevo usuario</a></p>
 	</form>
 <?php
 	}

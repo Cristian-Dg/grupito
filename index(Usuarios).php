@@ -4,7 +4,7 @@
 		header ('location: index.php?redirect=1');
 	} */
 	require_once "inc/encabezado.php";
-	require_once "bbdd/bbdd(Usuarios).php";
+	require_once "bbdd/bbdd.php";
 ?>
 	<main role="main" class="container">
     <h1 class='mt-5' align='center'>listado Usuarios</h1>

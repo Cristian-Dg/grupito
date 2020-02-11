@@ -32,7 +32,7 @@
 		<div class="col-6 mx-auto">
 			<p><?php echo $producto['descripcion']; ?></p>
 			<div class="row col-12 mx-auto d-flex justify-content-center">
-				<a href="carrito.php" class="btn btn-success text-justify">Add to the Carrito</a>
+				<a href="procesarCarrito.php?id=<?php echo $idProducto; ?>&op=add" class="btn btn-success text-justify">Add to the Carrito</a>
 			</div>
 		</div>
 		<div class="col-6 mx-auto">

@@ -40,4 +40,15 @@ function recoge($var, $m = "")
     }
     return $tmp;
 } //funcion recogida de datos
+
+function mostrarMensaje($mensaje){
+?>
+	<div class="jumbotron">
+		<div class="container">
+		  <h2 class="display-3"><?php echo $mensaje; ?></h2>
+		</div>
+	</div>
+<?php
+} //funcion mostrar mensajes
+
 ?>

@@ -1,6 +1,5 @@
 <?php
 	require_once('bbdd/bbdd.php');
-	require_once('bbdd/bbdd(usuarios).php');
 	session_start();
 	if(isset($_SESSION['usuario'])){
 		$usuario = seleccionarUsuario($_SESSION['usuario']);
