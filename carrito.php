@@ -2,6 +2,9 @@
 	session_start();
 	include_once "bbdd/bbdd.php";
 	include_once "inc/funciones.php";
+	if(isset($_SESSION['usuario'])){
+		$usuario = seleccionarUsuario($_SESSION['usuario']);
+	}
 	$pagina='carrito';
 	$titulo='My Carrito';
 	require_once'inc/encabezado.php';

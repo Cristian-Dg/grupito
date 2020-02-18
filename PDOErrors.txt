@@ -1,2 +1,7 @@
 
 6 February, 2020, 1:42 pm SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND online=1' at line 1
+18 February, 2020, 5:07 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`pedidos`, CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`idPedido`) REFERENCES `detallepedido` (`idPedido`))
+18 February, 2020, 5:08 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`pedidos`, CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`idPedido`) REFERENCES `detallepedido` (`idPedido`))
+18 February, 2020, 5:12 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`detallepedido`, CONSTRAINT `detallepedido_ibfk_2` FOREIGN KEY (`idDetallePedido`) REFERENCES `pedidos` (`idPedido`))
+18 February, 2020, 5:14 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`detallepedido`, CONSTRAINT `detallepedido_ibfk_2` FOREIGN KEY (`idDetallePedido`) REFERENCES `pedidos` (`idPedido`))
+18 February, 2020, 5:16 pmSQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total' cannot be null

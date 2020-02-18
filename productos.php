@@ -1,5 +1,9 @@
 <?php
+	session_start();
 	require_once('bbdd/bbdd.php');
+	if(isset($_SESSION['usuario'])){
+		$usuario = seleccionarUsuario($_SESSION['usuario']);
+	}
 	
 	$pagina='productos';
 	$titulo='Todas las GrupiOfertas';

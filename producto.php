@@ -1,6 +1,10 @@
 <?php
+	session_start();
 	require_once('bbdd/bbdd.php');
 	require_once('inc/funciones.php');
+	if(isset($_SESSION['usuario'])){
+		$usuario = seleccionarUsuario($_SESSION['usuario']);
+	}
 	
 	$idProducto = recoge('id');
 	$producto = seleccionarProducto($idProducto);
