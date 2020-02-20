@@ -5,3 +5,6 @@
 18 February, 2020, 5:12 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`detallepedido`, CONSTRAINT `detallepedido_ibfk_2` FOREIGN KEY (`idDetallePedido`) REFERENCES `pedidos` (`idPedido`))
 18 February, 2020, 5:14 pmSQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grupito`.`detallepedido`, CONSTRAINT `detallepedido_ibfk_2` FOREIGN KEY (`idDetallePedido`) REFERENCES `pedidos` (`idPedido`))
 18 February, 2020, 5:16 pmSQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total' cannot be null
+20 February, 2020, 1:20 pm SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+20 February, 2020, 1:45 pm SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+20 February, 2020, 1:47 pm SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens

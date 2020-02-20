@@ -4,14 +4,16 @@
 	if(isset($_SESSION['usuario'])){
 		$usuario = seleccionarUsuario($_SESSION['usuario']);
 	}
-	require_once('inc/encabezado.php');
+	$pagina='misDatos';
+	$titulo='Mis Datos';
 	require_once('inc/funciones.php');
+	require_once('inc/encabezado.php');
 ?>
 
   <div class="jumbotron">
     <div class="container">
       <h2 class="display-3">Mis Datos</h2>
-      <p><a class="btn btn-primary btn-lg" href="modificarDatos.php" role="button">Modificar Datos »</a></p>
+      <p><a class="btn btn-primary btn-lg" href="actualizarUsuario.php" role="button">Modificar Datos »</a></p><p><a class="btn btn-primary btn-lg" href="cambiarPassword.php" role="button">Modificar Password »</a></p>
     </div>
   </div>
 <?php

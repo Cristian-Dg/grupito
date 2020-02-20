@@ -1,8 +1,9 @@
 <?php
 	session_start();
-	include_once "bbdd/bbdd.php";
-	include_once "inc/funciones.php";
+	require_once('bbdd/bbdd.php');
+	require_once('inc/funciones.php');
 	require_once('inc/encabezado.php');
+	
 	
 	if(isset($_SESSION['usuario'])){
 		$usuario = seleccionarUsuario($_SESSION['usuario']);
@@ -17,7 +18,8 @@
 		unset($_SESSION['total']);
 		unset($_SESSION['carrito']);
 		
-		echo "<h4>Tu pedido ha sido registrado</h4>";
+		$mensaje = "Pedido Registrado";
+		mostrarMensaje($mensaje);
 		echo '<a href="index.php" class="btn btn-outline-success my-2 my-sm-0">volver</a>';
 	}
 	else{

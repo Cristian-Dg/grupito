@@ -1,14 +1,11 @@
 <?php
 	session_start();
 	require_once('bbdd/bbdd.php');
-	if(isset($_SESSION['usuario'])){
-		$usuario = seleccionarUsuario($_SESSION['usuario']);
-	}
 	$pagina='index';
 	$titulo='My Grupito';
 	
-	require_once('inc/encabezado.php');
 	require_once('inc/funciones.php');
+	require_once('inc/encabezado.php');
 	
 ?>
 

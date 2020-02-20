@@ -1,7 +1,13 @@
-<?php 
-	require_once "inc/funciones.php";
-	require_once "bbdd/bbdd.php";
-	require_once "inc/encabezado.php";
+<?php
+	session_start();
+	require_once('bbdd/bbdd.php');
+	if(isset($_SESSION['usuario'])){
+		$usuario = seleccionarUsuario($_SESSION['usuario']);
+	}
+	$pagina='misDatos';
+	$titulo='Actualizar Datos';
+	require_once('inc/funciones.php');
+	require_once('inc/encabezado.php');
 ?>
 
 <?php
@@ -22,7 +28,7 @@
 		</div>
 		<div class="form-group">
 			<label for="email"><strong>Email</strong></label>
-			<input type="email" class="form-control" id="email" name="email" value='<?php echo $email; ?>'/>
+			<input type="email" class="form-control" id="email" name="email" value='<?php echo $email; ?>' readonly />
 		</div>
 		<div class="form-group">
 			<label for="direccion"><strong>Dirección</strong></label>
@@ -31,18 +37,6 @@
 		<div class="form-group">
 			<label for="telefono"><strong>Telefono</strong></label>
 			<input type="text" class="form-control" id="telefono" name="telefono" value='<?php echo $telefono; ?>'/>
-		</div>
-		<div class="form-group">
-			<label for="aPassword"><strong>Password antigua</strong></label>
-			<input type="password" class="form-control" id="aPassword" name="aPassword" />
-		</div>
-		<div class="form-group">
-			<label for="nPassword1"><strong>Password nueva</strong></label>
-			<input type="password" class="form-control" id="nPassword1" name="nPassword1" />
-		</div>
-		<div class="form-group">
-			<label for="nPassword2"><strong>Repetir Password</strong></label>
-			<input type="password" class="form-control" id="nPassword2" name="nPassword2" />
 		</div>
 		<p>
 			<br><button type="submit" class="btn btn-secondary" name='guardar' value='guardar'>Guardar</button><button style="margin-left: 10px" type="submit" class="btn btn-secondary" name='volver' value='volver'>Volver</button>
@@ -53,20 +47,14 @@
 ?>
 
 	<main role="main" class="container">
-    <h1 class='mt-5' align='center'>Actualizar usuario</h1>
+    <h1 class='mt-5' align='center'>Actualizar Datos</h1>
 <?php
 	if(isset($_REQUEST['volver'])){
-		header("location: index(Usuarios).php");
+		header("location: misDatos.php");
 	}
 	if(!isset($_REQUEST['guardar'])){
-		$email=recoge('email');
-		if($idUsuario==''){
-			header("location: index(Usuarios).php");
-			exit();
-		}
-		$usuario=seleccionarUsuario($email);
 		if(empty($usuario)){
-			header("location: index(Usuarios).php");
+			header("location: index.php");
 			exit();	
 		}
 		$idUsuario = $usuario['idUsuario'];
@@ -84,37 +72,25 @@
 		$email = recoge('email');
 		$direccion = recoge('direccion');
 		$telefono = recoge('telefono');
-		$password=recoge('aPassword');
-		$newPassword=recoge('nPassword1');
-		$verifPassword=recoge('nPassword2');
 		$usuario=comprobarUsuario($nombre);
-		$ok=password_verify($password,$usuario['password']);
 		$errores='';
 		if($nombre==''){
 			$errores=$errores.'<li>El campo nombre no puede estar vacío</li>';
-		}
-		if($password==''){
-			$errores=$errores.'<li>El campo password antigua no puede estar vacío</li>';
-		}
-		if($newPassword!=$verifPassword){
-			$errores=$errores.'<li>La Password nueva no coincide</li>';
-		}
-		if (!$ok){
-			$errores=$errores.'<li>Password antigua incorrecta</li>';
 		}
 		if($errores!=''){
 			echo "<h3>Errores:</h3><ul>".$errores."</ul>";
 			imprimirFormulario($idUsuario,$nombre,$apellidos,$email,$direccion,$telefono);
 		}
 		else{
-			$funciona=actualizarUsuario($idUsuario,$nombre,$newPassword,$apellidos,$email,$direccion,$telefono);
+			$funciona=actualizarDatos($idUsuario,$nombre,$apellidos,$email,$direccion,$telefono);
 			if(!$funciona){
-				echo'<div class="alert alert-danger" role="alert">Error al actualizar el usuario</div>';
+				echo'<div class="alert alert-danger" role="alert">Error al actualizar tus datos</div>';
 				imprimirFormulario($idUsuario,$nombre,$apellidos,$email,$direccion,$telefono);
 			}
 			else{
-				echo'<div class="alert alert-success" role="alert">El usuario '.$idUsuario.' ha sido actualizado</div>';
-				echo "<p><a href='index(Usuarios).php' class='btn btn-dark'>Volver al listado de usuarios</a></p>";
+				$mensaje = "Datos Actualizados";
+				mostrarMensaje($mensaje);
+				echo '<a href="misDatos.php" class="btn btn-outline-success my-2 my-sm-0">volver</a>';
 			}
 		}
 	}

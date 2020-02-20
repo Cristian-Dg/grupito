@@ -4,12 +4,11 @@
 	if(isset($_SESSION['usuario'])){
 		$usuario = seleccionarUsuario($_SESSION['usuario']);
 	}
-	
 	$pagina='productos';
 	$titulo='Todas las GrupiOfertas';
 	
-	require_once('inc/encabezado.php');
 	require_once('inc/funciones.php');
+	require_once('inc/encabezado.php');
 	
 ?>
 

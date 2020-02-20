@@ -21,6 +21,7 @@
 ?>
 
 <?php
+	require_once('inc/funciones.php');
 	require_once('inc/encabezado.php');
 ?>
 

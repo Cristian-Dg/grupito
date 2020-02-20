@@ -69,14 +69,14 @@
 				<?php if(empty($_SESSION['carrito'])){ ?>
 				<a href="carrito.php" class="nav-link"><i class="fas fa-shopping-cart"></i> (0)</a>
 				<?php }else{ ?>
-				<a href="carrito.php" class="nav-link"><i class="fas fa-cart-plus"></i> (0)</a>
+				<a href="carrito.php" class="nav-link"><i class="fas fa-cart-plus"></i> (<?php echo $_SESSION['totalCant']; ?>)</a>
 				<?php } ?>
 			</li>
 			<?php
 				if (isset($_SESSION['usuario'])){
 			?>
 			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $usuario['nombre']; ?></a>
+			<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo ($_SESSION['usuario']); ?></a>
 			<div class="dropdown-menu" aria-labelledby="dropdown01">
 			  <a class="dropdown-item" href="misDatos.php">Mis datos</a>
 			  <a class="dropdown-item" href="misPedidos.php">Mis pedidos</a>
