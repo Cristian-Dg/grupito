@@ -16,15 +16,15 @@
       <p><a class="btn btn-primary btn-lg" href="actualizarUsuario.php" role="button">Modificar Datos »</a></p><p><a class="btn btn-primary btn-lg" href="cambiarPassword.php" role="button">Modificar Password »</a></p>
     </div>
   </div>
-<?php
+  
+	<ul class="list-group list-group-flush">
+	  <li class="list-group-item"><?php echo "<p><strong>Nombre:</strong> ".$usuario['nombre']."</p>"; ?></li>
+	  <li class="list-group-item"><?php echo "<p><strong>Apellidos:</strong> ".$usuario['apellidos']."</p>"; ?></li>
+	  <li class="list-group-item"><?php echo "<p><strong>Email:</strong> ".$usuario['email']."</p>"; ?></li>
+	  <li class="list-group-item"><?php echo "<p><strong>Direccion:</strong> ".$usuario['direccion']."</p>"; ?></li>
+	  <li class="list-group-item"><?php echo "<p><strong>Telefono:</strong> ".$usuario['telefono']."</p>"; ?></li>
+	</ul>
 
-	echo "<p><strong>Nombre:</strong> ".$usuario['nombre']."</p>";
-	echo "<p><strong>Apellidos:</strong> ".$usuario['apellidos']."</p>";
-	echo "<p><strong>Email:</strong> ".$usuario['email']."</p>";
-	echo "<p><strong>Direccion:</strong> ".$usuario['direccion']."</p>";
-	echo "<p><strong>Telefono:</strong> ".$usuario['telefono']."</p>";
-
-?>
 	</div>
 	</div>
 </main>
