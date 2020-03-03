@@ -28,8 +28,13 @@
 ?>
 	<form method='POST'>
 		<p ><h5>Formulario de Contacto:</h5></p>
-		<p><label for='email'>Email: </label> <input type='email' name='email' id='email' <?php if(isset($_SESSION['usuario'])){ ?> value='<?php echo $_SESSION['usuario']; ?>' <?php } ?>/><p>
-		<p><label for='mailBody'>Mensaje: </label><br><textarea name='mailBody' id='mailBody'></textarea><p>
+		<div class="form-group row">
+			<label for='email' class="col-sm-2 col-form-label">Email: </label>
+			<div class="col-sm-10"><input type="email" name='email' class="form-control" id="email" aria-describedby="emailHelp" <?php if(isset($_SESSION['usuario'])){ ?> value='<?php echo $_SESSION['usuario']; ?>' <?php } ?>/></div>
+		</div>
+		<div class="form-group row">
+			<label for='mailBody' class="col-sm-2 col-form-label">Mensaje: </label><div class="col-sm-10"><textarea class="form-control" name='mailBody' id='mailBody' rows="3"></textarea></div>
+		</div>
 		<p><button type="submit" class="btn btn-info" name='guardar' value='guardar'>Contáctanos</button></p>
 	</form>
 <?php

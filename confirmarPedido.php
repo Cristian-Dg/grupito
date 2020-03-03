@@ -18,9 +18,9 @@
 		unset($_SESSION['total']);
 		unset($_SESSION['carrito']);
 		
-		$mensaje = "Pedido Registrado";
-		mostrarMensaje($mensaje);
-		echo '<a href="index.php" class="btn btn-outline-success my-2 my-sm-0">volver</a>';
+		$_SESSION['email']=$_SESSION['usuario'];
+		header("location: ../enviarCorreo/correoPedidos.php");
+
 	}
 	else{
 		echo "<h4>No puedes confirmar un pedido sin iniciar sesión</h4>";
