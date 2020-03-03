@@ -1,18 +1,17 @@
 <?php
 	session_start();
 	require_once('bbdd/bbdd.php');
-	if(isset($_SESSION['idPedido'])){
-		$pedidos = seleccionarTodosPedidos();
-	}
-	else{
+	require_once('inc/funciones.php');
+	$pagina='misPedidos';
+	$titulo='Mis Pedidos';
+	require_once('inc/encabezado.php');
+	$pedidos = seleccionarTodosPedidos();
+	if(empty($pedidos)){
 		$mensaje = "No hay Pedidos";
 		mostrarMensaje($mensaje);
 		echo '<a href="carrito.php" class="btn btn-outline-success my-2 my-sm-0">volver</a>';
 	}
-	$pagina='misPedidos';
-	$titulo='Mis Pedidos';
-	require_once('inc/funciones.php');
-	require_once('inc/encabezado.php');
+	else{
 ?>
 
   <div class="jumbotron">
@@ -30,7 +29,6 @@
 			  <th scope="col">fecha</th>
 			  <th scope="col">total</th>
 			  <th scope="col">estado</th>
-			  
 			</tr>
 		  </thead>
 		  <tbody >
@@ -53,7 +51,7 @@
 	</div>
 	</div>
 </main>
-
 <?php
+}
 	require_once('inc/pie.php');
 ?>

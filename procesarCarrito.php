@@ -3,6 +3,9 @@
 	include_once "bbdd/bbdd.php";
 	require_once('inc/funciones.php');
 	require_once('inc/encabezado.php');
+	if(!isset($totalCant)){
+		$_SESSION['totalCant']=0;
+	}
 ?>
 
 <?php
